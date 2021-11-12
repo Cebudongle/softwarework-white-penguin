@@ -1,0 +1,156 @@
+<view class="main">
+<!-- 返回键 -->
+    <navigator url="../demo1/demo1">
+    <view class="back_Icon">
+    <image src="../../image/back.png" style="width: 100%; height: 100%;"></image>
+    </view>
+    </navigator>  
+<!-- 搜索容器 -->
+    <view class="search-box">
+    <!-- 白布框 -->
+        <input class="search-input" placeholder="请输入搜索" value="{{value}}" bindinput="searchInput" />
+        <icon class="weui-icon-search_in-box search-icon" type="search" wx:if="{{isSearch}}" size="30"></icon>
+        <!-- 点击相关词，后结果，出现取消键-->
+        <text class="search-btn" wx:if="{{showResult}}" bindtap="cancelSearch">取消</text>
+    </view>
+</view>
+    <!-- 若showResult为false时候显示热点搜索和历史搜索，反之显示结果-->
+    <view class="result" wx:if="{{showResult}}" >
+    <view wx:if="{{result.length > 0}}">
+        <view class="item_show" >
+            <view class=".item_title">文章标题</view>
+            <view class="content">内容简介</view>
+            <view class="from">平台&作者</view>
+            <view class="point_Num">文章点击量</view>
+            <view class="like">
+            <image class="like_Image" src="../../image/like.png" bindtap="tapLike" wx:if="{{like}}"></image>
+            <image class="like_Image" src="../../image/like_1.png" bindtap="cancelLike" wx:if="{{islike}}"></image>
+            </view>
+        </view>
+        <view class="item_show" >
+            <view class=".item_title">文章标题</view>
+            <view class="content">内容简介</view>
+            <view class="from">平台&作者</view>
+            <view class="point_Num">文章点击量</view>
+            <view class="like">
+            <image class="like_Image" src="../../image/like.png" bindtap="tapLike" wx:if="{{like}}"></image>
+            <image class="like_Image" src="../../image/like_1.png" bindtap="cancelLike" wx:if="{{islike}}"></image>
+            </view>
+        </view>
+        <view class="item_show" >
+            <view class=".item_title">文章标题</view>
+            <view class="content">内容简介</view>
+            <view class="from">平台&作者</view>
+            <view class="point_Num">文章点击量</view>
+            <view class="like">
+            <image class="like_Image" src="../../image/like.png" bindtap="tapLike" wx:if="{{like}}"></image>
+            <image class="like_Image" src="../../image/like_1.png" bindtap="cancelLike" wx:if="{{islike}}"></image>
+            </view>
+        </view>
+        <view class="item_show" >
+            <view class=".item_title">文章标题</view>
+            <view class="content">内容简介</view>
+            <view class="from">平台&作者</view>
+            <view class="point_Num">文章点击量</view>
+            <view class="like">
+            <image class="like_Image" src="../../image/like.png" bindtap="tapLike" wx:if="{{like}}"></image>
+            <image class="like_Image" src="../../image/like_1.png" bindtap="cancelLike" wx:if="{{islike}}"></image>
+            </view>
+        </view>
+        <view class="item_show" >
+            <view class=".item_title">文章标题</view>
+            <view class="content">内容简介</view>
+            <view class="from">平台&作者</view>
+            <view class="point_Num">文章点击量</view>
+            <view class="like">
+            <image class="like_Image" src="../../image/like.png" bindtap="tapLike" wx:if="{{like}}"></image>
+            <image class="like_Image" src="../../image/like_1.png" bindtap="cancelLike" wx:if="{{islike}}"></image>
+            </view>
+        </view>
+        <view class="item_show" >
+            <view class=".item_title">文章标题</view>
+            <view class="content">内容简介</view>
+            <view class="from">平台&作者</view>
+            <view class="point_Num">文章点击量</view>
+            <view class="like">
+            <image class="like_Image" src="../../image/like.png" bindtap="tapLike" wx:if="{{like}}"></image>
+            <image class="like_Image" src="../../image/like_1.png" bindtap="cancelLike" wx:if="{{islike}}"></image>
+            </view>
+        </view>
+        <view class="item_show" >
+            <view class=".item_title">文章标题</view>
+            <view class="content">内容简介</view>
+            <view class="from">平台&作者</view>
+            <view class="point_Num">文章点击量</view>
+            <view class="like">
+            <image class="like_Image" src="../../image/like.png" bindtap="tapLike" wx:if="{{like}}"></image>
+            <image class="like_Image" src="../../image/like_1.png" bindtap="cancelLike" wx:if="{{islike}}"></image>
+            </view>
+        </view>
+    </view>   
+        <!-- 空输入时 -->
+        <view class="result-null" wx:if="{{isNULL}}">
+            <view class="null-tips">Oh~~ 搜索结果为空！</view>
+            <view class="recommend-title">
+                <text>相关推荐</text>
+            </view>
+            <view class="recommend-box">
+                <view class="item_show" style="position: relative; left: -39rpx; top: -19rpx">
+            <view class=".item_title">文章标题</view>
+            <view class="content">内容简介</view>
+            <view class="from">平台&作者</view>
+            <view class="point_Num">文章点击量</view>
+            <view class="like">
+            <image class="like_Image" src="../../image/like.png" bindtap="tapLike" wx:if="{{like}}"></image>
+            <image class="like_Image" src="../../image/like_1.png" bindtap="cancelLike" wx:if="{{islike}}"></image>
+            </view>
+        </view> 
+        <view class="item_show" style="position: relative; left: -39rpx; top: -19rpx">
+            <view class=".item_title">文章标题</view>
+            <view class="content">内容简介</view>
+            <view class="from">平台&作者</view>
+            <view class="point_Num">文章点击量</view>
+            <view class="like">
+            <image class="like_Image" src="../../image/like.png" bindtap="tapLike" wx:if="{{like}}"></image>
+            <image class="like_Image" src="../../image/like_1.png" bindtap="cancelLike" wx:if="{{islike}}"></image>
+            </view>
+        </view> 
+        <view class="item_show" style="position: relative; left: -39rpx; top: -19rpx">
+            <view class=".item_title">文章标题</view>
+            <view class="content">内容简介</view>
+            <view class="from">平台&作者</view>
+            <view class="point_Num">文章点击量</view>
+            <view class="like">
+            <image class="like_Image" src="../../image/like.png" bindtap="tapLike" wx:if="{{like}}"></image>
+            <image class="like_Image" src="../../image/like_1.png" bindtap="cancelLike" wx:if="{{islike}}"></image>
+            </view>
+        </view> 
+            </view>
+        </view>
+    </view>
+    <!-- 热门搜索和历史搜索 -->
+    <view class="init-page" wx:else>
+        <!-- 热点搜索 -->
+        <view class="title">
+            <text>热点搜索</text>
+        </view>
+        <view class="tags">
+            <text wx:for="{{hot}}" wx:key="index" data-text="{{item}}" bindtap="keywordHandle">{{item}}</text>
+        </view>
+        <!-- 历史搜索 -->
+        <view wx:if="{{history.length >=0}}">
+            <view class="title">
+                <text>历史搜索</text>
+                <!-- 清除键 -->
+                <text class="clear"  bindtap="clearHistory">清除</text>
+            </view>
+            <view class="tags">
+                <text wx:for="{{history}}" wx:key="index" data-text="{{item}}" bindtap="keywordHandle">{{item}}</text>
+            </view>
+        </view>
+    </view>
+<!-- 显示关键词语 -->
+    <view class="keywords" wx:if="{{showKeywords}}">
+        <view class="keywords-item" wx:for="{{keywords}}" wx:key="index" data-text="{{item}}" bindtap="keywordHandle">{{item}}</view>
+    </view>
+
