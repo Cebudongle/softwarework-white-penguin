@@ -1,0 +1,49 @@
+/* pages/home/home.wxss */
+swiper{
+    width: 100%;
+    height: calc(100vw * 352 / 676);
+}
+image{
+    width: 100%;
+}
+.first_tab{
+    position: relative;
+    width: 100vw;
+    height: 20vh;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    border-bottom: 1px solid #000;
+}
+button{
+    width: 750rpx;
+}
+.info_right{
+    position: absolute;
+    right: 0vw;
+    width: 50vw;
+}
+.info_left{
+    position: absolute;
+    left: 0vw ;
+    width: 50vw;
+}
+.title{
+    position: absolute;
+    height: 10vh;
+}
+.click{
+    position: absolute;
+    height: 10vh;
+}
+.author{
+    position: absolute;
+    top: 10vh;
+    height: 10vh;
+}
+.webside{
+    position: absolute;
+    top: 10vh;
+    height: 10vh;
+}

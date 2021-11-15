@@ -1,0 +1,64 @@
+<!-- 搜索框 开始 -->
+<view class="pyg_home">
+<searchinput></searchinput>
+</view>
+<!-- 搜索框 结束 -->
+<!--轮播图 开始-->
+<swiper autoplay interval="2500" indicator-dots indicator-color="#0094ff" indicator-active-color="#ff0094" circular>
+    <swiper-item
+    wx:for="{{swiperList}}"
+    wx:key="id"
+    >
+    <navigator url="/pages/item/item">
+    <image mode="widthFix" src="{{item.src}}" />
+    </navigator>
+    </swiper-item>
+</swiper>
+<!-- 轮播图 结束 -->
+<!-- 热门文章推送开始 -->
+<view class="first_tab">
+<navigator class="article" url="/pages/article/article">
+<!-- 左侧文章信息 -->
+<view class="info_left">
+<view class="title">文章名：{{title}}</view>
+<view class="author">作者：{{author}}</view>
+</view>
+<!-- 右侧文章信息 -->
+<view class="info_right">
+<view class="click">点击量：{{click}}</view>
+<view class="webside">来源网站：{{webside}}</view>
+</view>
+</navigator>
+<view class="collect">
+<text class="iconfont icon-shoucang1">
+</text>
+</view>
+</view>
+<view class="first_tab">
+<navigator class="article" url="/pages/article/article">
+<!-- 左侧文章信息 -->
+<view class="info_left">
+<view class="title">文章名：{{title}}</view>
+<view class="author">作者：{{author}}</view>
+</view>
+<!-- 右侧文章信息 -->
+<view class="info_right">
+<view class="click">点击量：{{click}}</view>
+<view class="webside">来源网站：{{webside}}</view>
+</view>
+</navigator>
+</view>
+<view class="first_tab">
+<navigator class="article" url="/pages/article/article">
+<!-- 左侧文章信息 -->
+<view class="info_left">
+<view class="title">文章名：{{title}}</view>
+<view class="author">作者：{{author}}</view>
+</view>
+<!-- 右侧文章信息 -->
+<view class="info_right">
+<view class="click">点击量：{{click}}</view>
+<view class="webside">来源网站：{{webside}}</view>
+</view>
+</navigator>
+</view>

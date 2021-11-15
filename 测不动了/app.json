@@ -1,0 +1,39 @@
+{
+  "pages":[
+    "pages/home/home",
+    "pages/index/index",
+    "pages/hot/hot",
+    "pages/article/article",
+    "pages/item/item",
+    "pages/personal/personal"
+  ],
+  "window":{
+    "backgroundTextStyle":"dark",
+    "navigationBarBackgroundColor": "#0094aa",
+    "navigationBarTitleText": "white penguin",
+    "navigationBarTextStyle":"black",
+    "enablePullDownRefresh": true
+  },
+"tabBar": {
+  "list": [{
+    "pagePath": "pages/home/home",
+    "text": "主页",
+    "iconPath": "icon/主页.png",
+    "selectedIconPath": "icon/主页选中.png"
+  },
+  {
+    "pagePath": "pages/hot/hot",
+    "text": "榜单",
+    "iconPath": "icon/榜单.png",
+    "selectedIconPath": "icon/榜单选中.png"
+  },
+  {
+    "pagePath": "pages/personal/personal",
+    "text": "个人",
+    "iconPath": "icon/个人.png",
+    "selectedIconPath": "icon/个人选中.png"
+  }]
+},
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
