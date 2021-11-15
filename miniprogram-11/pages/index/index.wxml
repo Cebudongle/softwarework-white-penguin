@@ -1,0 +1,47 @@
+<!-- 头像与文本 -->
+<view class="vi1" style="transform: rotate({{deg}}deg);margin-left:{{l}}px;margin-top:{{t}}px;">
+  <image src="/img/头像.png" mode="widthFix" class="compss"></image>
+  <text  bindtap="jump4" style="margin-left:3rpx;color: #ffffff;font-size:20% ;">登入</text>
+</view>
+<!-- 全局背景 -->
+<view >
+  <image src="/img/主页背景图.png" class="map" ></image>
+</view>
+
+<!-- 图标设置 -->
+<view class="vi2" bindtap="jump2">
+    <image src="/img/设置.png" style="width:70rpx;height:70rpx;margin-left:9%;"></image>
+</view>
+<!-- 图标设置 -->
+<view class="vi4" bindtap="jump2">
+    <image src="/img/设置.png" style="width:80rpx;height:80rpx;margin-left:9%;"></image>
+</view>
+<!-- 左边的字0 -->
+<view class="vi12">
+<view>0</view>
+</view>
+<!--右边的字0 -->
+<view class="vi14">
+<view>0</view>
+</view>
+<!-- 字收藏 -->
+<view class="vi11">
+<view>收藏</view>
+</view>
+<!-- 字订阅 -->
+<view class="vi13">
+<view>订阅</view>
+</view>
+<!-- 收藏夹 -->
+<view class="vi8" bindtap="jump1">
+  <image src="/img/收藏夹.png" class="ceshi"></image>
+</view>
+<!-- 订阅&关注 -->
+<view class="vi88" bindtap="jump3">
+  <image src="/img/订阅&关注.png" class="ceshi"></image>
+</view>
+
+
+
+
+

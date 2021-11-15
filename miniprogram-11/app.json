@@ -1,0 +1,23 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/page2/page2",
+    "pages/page1/page1",
+    "pages/logs/logs",
+    "pages/pages3/pages3",
+    "pages/page3/page3",
+    "pages/个人主页/个人主页",
+    "pages/我的/我的",
+    "pages/page4/page4",
+    "pages/登录/登录",
+    "pages/page5/page5"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

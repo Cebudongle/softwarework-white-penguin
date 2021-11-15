@@ -1,0 +1,5 @@
+<!--pages/page4/page4.wxml-->
+<image src="/img/主页背景图.png" class="zi2"></image>
+<view class="zi1">收藏</view>
+<image src="/img/收藏夹.png" class="scj" ></image>
+<image src="/img/订阅&关注.png " class="dygz"></image>

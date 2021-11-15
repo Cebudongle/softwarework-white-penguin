@@ -1,0 +1,22 @@
+/* pages/page4/page4.wxss */
+.scj{
+width: 155rpx;
+height: 155rpx;
+margin-top:150rpx ;
+margin-left:80rpx ;
+}
+.dygz{
+  width: 155rpx;
+  height: 155rpx;
+  margin-top:150rpx ;
+  margin-left:280rpx ;
+  }
+  zi1{
+  position:absolute;
+  z-index: 2;
+  margin-top: 700rpx;
+  }
+  zi2{
+    position: relative;
+    z-index: 1;
+    }

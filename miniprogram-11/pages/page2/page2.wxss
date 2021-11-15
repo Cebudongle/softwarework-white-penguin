@@ -1,0 +1,72 @@
+/* pages/page2/page2.wxss */
+/* pages/page1/page1.wxss */
+.box1{
+  border: 1px solid silver;
+  padding: 36rpx;
+  padding: 20rpx;
+  background-color: rgb(92, 92, 245);
+}
+.zi1{
+  margin-left: 43%;
+  color: white;
+}
+.product-list {
+  width: 100%;
+  box-sizing: border-box;
+  
+ }
+  
+  
+ .choice-bar {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  font-size: 14px;
+  background-color: #fff;
+  /**z-index: 0;**/
+ }
+ .chioce-item {
+  background-color:rgb(163, 192, 181);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20rpx;
+  width: 43%;
+  height: 65rpx;
+  border-top-right-radius: 15rpx;
+  border-bottom-right-radius: 15rpx;
+  border-bottom: 1rpx solid #ddd;
+  border-left: 1rpx solid #ddd;
+  /*border-right: 1rpx solid #ddd;*/
+ }
+  
+ .icon-chioce {
+  height: 30rpx;
+  width: 30rpx;
+ }
+ .district-list,.sorting-list,.filter-list {
+  margin-top: 2rpx;
+  position: absolute;
+  top: 80rpx;
+  left: 0;
+  width: 47%;
+  background-color: white;
+  z-index: -1;
+  font-size: 14px;
+  border-bottom: 1rpx solid #ddd;
+ }
+ .chioce-list-hide {
+  display: none !important;
+ }
+ .chioce-list-show {
+  /**top: 80rpx;**/
+  animation: slide 500ms;
+ }
+  
+ .sorting-item {
+  height: 80rpx;
+  line-height: 80rpx;
+  padding: 0 40rpx;
+  border-bottom: 1rpx solid #ddd;
+ }
+ 

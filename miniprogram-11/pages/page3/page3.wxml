@@ -1,0 +1,14 @@
+<!--pages/page3/page3.wxml-->
+<view >
+	<view class="nav">
+		<view class="item {{current == '0' ? 'active' : ''}}" catchtap="onClick" data-id="0">订阅</view>
+		<view class="item {{current == '1' ? 'active' : ''}}" catchtap="onClick" data-id="1">关注</view>
+	</view>
+	<view class="list">
+		<block wx:for="{{newslist}}" wx:for-index="idx">
+			<view class="detail" wx:if="{{idx == current}}">
+				{{item.text}}
+			</view>
+		</block>
+	</view>
+</view>
