@@ -16,75 +16,17 @@
 </view>
     <!-- 若showResult为false时候显示热点搜索和历史搜索，反之显示结果-->
     <view class="result" wx:if="{{showResult}}" >
-    <view wx:if="{{result.length > 0}}">
-        <view class="item_show" >
-            <view class=".item_title">文章标题</view>
-            <view class="content">内容简介</view>
-            <view class="from">平台&作者</view>
-            <view class="point_Num">文章点击量</view>
+    <view wx:if="{{result.length > 0}}" >
+        <view class="item_show" wx:for="{{result}}" wx:key="index">
+            <navigator url="{{item.url}}">
+            <view class=".item_title">{{item.title}}</view>
+            <view class="content">{{item.text}}</view>
+            <view class="from">来源：{{item.writer}}</view>
+            <view class="point_Num">点击量：{{item.pointNum}}</view>
+            </navigator>
             <view class="like">
-            <image class="like_Image" src="../../image/like.png" bindtap="tapLike" wx:if="{{like}}"></image>
-            <image class="like_Image" src="../../image/like_1.png" bindtap="cancelLike" wx:if="{{islike}}"></image>
-            </view>
-        </view>
-        <view class="item_show" >
-            <view class=".item_title">文章标题</view>
-            <view class="content">内容简介</view>
-            <view class="from">平台&作者</view>
-            <view class="point_Num">文章点击量</view>
-            <view class="like">
-            <image class="like_Image" src="../../image/like.png" bindtap="tapLike" wx:if="{{like}}"></image>
-            <image class="like_Image" src="../../image/like_1.png" bindtap="cancelLike" wx:if="{{islike}}"></image>
-            </view>
-        </view>
-        <view class="item_show" >
-            <view class=".item_title">文章标题</view>
-            <view class="content">内容简介</view>
-            <view class="from">平台&作者</view>
-            <view class="point_Num">文章点击量</view>
-            <view class="like">
-            <image class="like_Image" src="../../image/like.png" bindtap="tapLike" wx:if="{{like}}"></image>
-            <image class="like_Image" src="../../image/like_1.png" bindtap="cancelLike" wx:if="{{islike}}"></image>
-            </view>
-        </view>
-        <view class="item_show" >
-            <view class=".item_title">文章标题</view>
-            <view class="content">内容简介</view>
-            <view class="from">平台&作者</view>
-            <view class="point_Num">文章点击量</view>
-            <view class="like">
-            <image class="like_Image" src="../../image/like.png" bindtap="tapLike" wx:if="{{like}}"></image>
-            <image class="like_Image" src="../../image/like_1.png" bindtap="cancelLike" wx:if="{{islike}}"></image>
-            </view>
-        </view>
-        <view class="item_show" >
-            <view class=".item_title">文章标题</view>
-            <view class="content">内容简介</view>
-            <view class="from">平台&作者</view>
-            <view class="point_Num">文章点击量</view>
-            <view class="like">
-            <image class="like_Image" src="../../image/like.png" bindtap="tapLike" wx:if="{{like}}"></image>
-            <image class="like_Image" src="../../image/like_1.png" bindtap="cancelLike" wx:if="{{islike}}"></image>
-            </view>
-        </view>
-        <view class="item_show" >
-            <view class=".item_title">文章标题</view>
-            <view class="content">内容简介</view>
-            <view class="from">平台&作者</view>
-            <view class="point_Num">文章点击量</view>
-            <view class="like">
-            <image class="like_Image" src="../../image/like.png" bindtap="tapLike" wx:if="{{like}}"></image>
-            <image class="like_Image" src="../../image/like_1.png" bindtap="cancelLike" wx:if="{{islike}}"></image>
-            </view>
-        </view>
-        <view class="item_show" >
-            <view class=".item_title">文章标题</view>
-            <view class="content">内容简介</view>
-            <view class="from">平台&作者</view>
-            <view class="point_Num">文章点击量</view>
-            <view class="like">
-            <image class="like_Image" src="../../image/like.png" bindtap="tapLike" wx:if="{{like}}"></image>
-            <image class="like_Image" src="../../image/like_1.png" bindtap="cancelLike" wx:if="{{islike}}"></image>
+            <image class="like_Image" src="../../image/like.png" bindtap="tapLike" wx:if="{{item.like}}" data-index="{{index}}"></image>
+            <image class="like_Image" src="../../image/like_1.png" bindtap="cancelLike" wx:if="{{item.islike}}" data-index="{{index}}"></image>
             </view>
         </view>
     </view>   

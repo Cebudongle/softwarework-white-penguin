@@ -4,26 +4,64 @@ Page({
         // 搜索历史
         history: [],
         // 热词推送
-        hot: ['java', 'c++', 'python'],
+        hot: ['java', 'c++', 'python','one','tow','three'],
         // 结果
         result: [
             {
                 id: 1,
-                url: '../details/details',
-                thumb: '/image/1.png',
+                url: '../demo5/demo5',
                 title: 'javaScript',
+                text:'************************',
+                writer:'yuanP',
+                pointNum:'1000',
+                like: true,
+                islike: false,
             },
             {
                 id: 2,
-                url: '../details/details',
-                thumb: '/image/2.png',
+                url: '../demo6/demo6',
                 title: '月刊',
-            }
+                text:'************************',
+                writer:'农P',
+                pointNum:'2000',
+                like: true,
+                islike: false,
+            },
+            {
+                id: 3,
+                url: '../demo5/demo5',
+                title: 'javaScript',
+                text:'************************',
+                writer:'yuanP',
+                pointNum:'1000',
+                like: true,
+                islike: false,
+            },
+            {
+                id: 4,
+                url: '../demo6/demo6',
+                title: 'javaScript',
+                text:'************************',
+                writer:'yuanP',
+                pointNum:'1000',
+                like: true,
+                islike: false,
+            },
+            {
+                id: 5,
+                url: '../demo6/demo6',
+                title: 'javaScript',
+                text:'************************',
+                writer:'yuanP',
+                pointNum:'1000',
+                like: true,
+                islike: false,
+            },
         ],
         // 关键词展示
         showKeywords: false,
         // 关键词
-        keywords: ['java', 'c++', 'c', 'python'],
+        keywords: ['java', 'c++', 'c', 'python','emmm','sdad'],
         // 输入值
         value: '',
         // 搜索结果
@@ -43,6 +81,7 @@ Page({
     },
    // 输入操作
     searchInput(e) {
+        console.log(e);
         // 判断是否为空，为空showKeywords:false
         if(!e.detail.value){
             this.setData({
@@ -114,17 +153,25 @@ Page({
         });
     },
     // 喜欢按钮事件
-    tapLike(){
+    tapLike(e){
+        console.log(e);
+        var index = e.currentTarget.dataset.index;
+        var result=this.data.result;
+        result[index].islike=true;
+        result[index].like=false;
         this.setData({
-            like:false,
-            islike:true,
+            result:result,
         });
     },
-    cancelLike()
-    {
+    cancelLike(e)
+    { 
+        console.log(e);
+        var index = e.currentTarget.dataset.index;
+        var result=this.data.result;
+        result[index].islike=false;
+        result[index].like=true;
         this.setData({
-            like:true,
-            islike:false,
+            result:result,
         });
     },
 

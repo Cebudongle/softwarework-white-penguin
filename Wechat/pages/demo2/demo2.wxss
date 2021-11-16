@@ -176,6 +176,7 @@
 /* 文章标题 */
 .item_title{
     font-size: 30rpx;
+    height: 40rpx;
     position: relative;
     top: 30rpx;
     left: 30rpx;
@@ -184,28 +185,30 @@
 .content{
     position: relative;
     top:60rpx;
+    width: 660rpx;
+    height: 150rpx;
     left: 50rpx;
 }
 /* 来源 */
 .from{
   position: relative;
-  top: 175rpx;
+  top: 60rpx;
   left: 50rpx;
   float:left;
 }
 /* 文章点击量 */
 .point_Num{
-  position: relative;
-  top: 175rpx;
-  left: 225rpx;
+  position: absolute;
+  top: 250rpx;
+  left: 300rpx;
   float: left;
 }
 /* 心形 */
 .like{
-  position: relative;
+  position: absolute;
   float: left;
-  top: 165rpx;
-  left: 375rpx;
+  top: 250rpx;
+  left: 600rpx;
   width: 50rpx;
   height: 50rpx;
 }
