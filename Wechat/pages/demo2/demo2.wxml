@@ -8,7 +8,7 @@
 <!-- 搜索容器 -->
     <view class="search-box">
     <!-- 白布框 -->
-        <input class="search-input" placeholder="请输入搜索" value="{{value}}" bindinput="searchInput" />
+        <input class="search-input" placeholder="请输入搜索" value="{{value}}" bindinput="searchInput"  bindconfirm="searchconfirm"/>
         <icon class="weui-icon-search_in-box search-icon" type="search" wx:if="{{isSearch}}" size="30"></icon>
         <!-- 点击相关词，后结果，出现取消键-->
         <text class="search-btn" wx:if="{{showResult}}" bindtap="cancelSearch">取消</text>
@@ -16,7 +16,7 @@
 </view>
     <!-- 若showResult为false时候显示热点搜索和历史搜索，反之显示结果-->
     <view class="result" wx:if="{{showResult}}" >
-    <view wx:if="{{result.length > 0}}" >
+    <view wx:if="{{match}}" >
         <view class="item_show" wx:for="{{result}}" wx:key="index">
             <navigator url="{{item.url}}">
             <view class=".item_title">{{item.title}}</view>
@@ -31,7 +31,7 @@
         </view>
     </view>   
         <!-- 空输入时 -->
-        <view class="result-null" wx:if="{{isNULL}}">
+        <view class="result-null" wx:if="{{!match}}">
             <view class="null-tips">Oh~~ 搜索结果为空！</view>
             <view class="recommend-title">
                 <text>相关推荐</text>
