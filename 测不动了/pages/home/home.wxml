@@ -17,7 +17,7 @@
 <!-- 轮播图 结束 -->
 <!-- 热门文章推送开始 -->
 <view class="first_tab">
-<navigator class="article" url="/pages/article/article">
+    <navigator class="article" url="/pages/article/article">
 <!-- 左侧文章信息 -->
 <view class="info_left">
 <view class="title">文章名：{{title}}</view>
@@ -32,10 +32,11 @@
 <view class="collect">
 <text class="iconfont icon-shoucang1">
 </text>
+<view class="collect_text">收藏</view>
 </view>
 </view>
 <view class="first_tab">
-<navigator class="article" url="/pages/article/article">
+    <navigator class="article" url="/pages/article/article">
 <!-- 左侧文章信息 -->
 <view class="info_left">
 <view class="title">文章名：{{title}}</view>
@@ -47,9 +48,14 @@
 <view class="webside">来源网站：{{webside}}</view>
 </view>
 </navigator>
+<view class="collect">
+<text class="iconfont icon-shoucang1">
+</text>
+<view class="collect_text">收藏</view>
+</view>
 </view>
 <view class="first_tab">
-<navigator class="article" url="/pages/article/article">
+    <navigator class="article" url="/pages/article/article">
 <!-- 左侧文章信息 -->
 <view class="info_left">
 <view class="title">文章名：{{title}}</view>
@@ -61,4 +67,9 @@
 <view class="webside">来源网站：{{webside}}</view>
 </view>
 </navigator>
+<view class="collect">
+<text class="iconfont icon-shoucang1">
+</text>
+<view class="collect_text">收藏</view>
+</view>
 </view>

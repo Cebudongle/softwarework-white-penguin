@@ -1,4 +1,7 @@
 /* pages/home/home.wxss */
+page{
+    font-size: small;
+}
 swiper{
     width: 100%;
     height: calc(100vw * 352 / 676);
@@ -10,40 +13,43 @@ image{
     position: relative;
     width: 100vw;
     height: 20vh;
-    display: -webkit-box;
+    display: flex;
     overflow: hidden;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #dedede;
+}
+.article{
+    flex:9;
+    display: flex;
 }
 button{
     width: 750rpx;
 }
 .info_right{
-    position: absolute;
-    right: 0vw;
-    width: 50vw;
+    flex:1;
+    display: flex;
+    flex-direction: column;
 }
 .info_left{
-    position: absolute;
-    left: 0vw ;
-    width: 50vw;
+    flex:1;
+    display: flex;
+    flex-direction: column;
 }
 .title{
-    position: absolute;
-    height: 10vh;
+    flex: 1;
 }
 .click{
-    position: absolute;
-    height: 10vh;
+    flex: 1;
 }
 .author{
-    position: absolute;
-    top: 10vh;
-    height: 10vh;
+    flex: 1;
 }
 .webside{
-    position: absolute;
-    top: 10vh;
-    height: 10vh;
+    flex: 1;
+}
+.collect{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
