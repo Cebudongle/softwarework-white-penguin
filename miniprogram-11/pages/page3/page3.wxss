@@ -16,6 +16,9 @@ page{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  border-bottom-style: solid;
+  border-bottom-color: black;
+  border-bottom-width: 1rpx;
 }
 
 .item{
@@ -29,7 +32,7 @@ page{
 }
 
 .active{
-  background-color: rgb(120, 120, 247);
+  background-color: rgb(31, 96, 195);
   border-radius: 10rpx;
   width:30% ;
   height:55% ;
@@ -44,4 +47,20 @@ page{
 
 .detail{
   margin: auto;
+  margin-top:30rpx;
+}
+.lb{
+  width: 100%;
+  height: 90rpx;
+}
+.lb1{
+  width: 45%;
+  height: 90rpx;
+  margin-top:0rpx;
+}
+.lb2{
+  width: 45%;
+  height: 90rpx;
+  margin-top: -90rpx;
+  margin-left: 55%;
 }

@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {},
+  "navigationBarTitleText": "订阅&关注",
+  "navigationBarBackgroundColor": "#1F60C3",
+  "navigationBarTextStyle": "white"
 }
