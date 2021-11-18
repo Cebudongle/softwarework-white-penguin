@@ -18,56 +18,36 @@
     <view class="result" wx:if="{{showResult}}" >
     <view wx:if="{{match}}" >
         <view class="item_show" wx:for="{{result}}" wx:key="index">
-            <navigator url="{{item.url}}">
-            <view class=".item_title">{{item.title}}</view>
-            <view class="content">{{item.text}}</view>
-            <view class="from">来源：{{item.writer}}</view>
-            <view class="point_Num">点击量：{{item.pointNum}}</view>
-            </navigator>
+            <view bindtap="gotoURL" data-index="{{index}}">
+            <view class=".item_title">{{item.name}}</view>
+            <view class="content">  {{item.description}}</view>
+            <view class="from">{{item.owner.login}}</view>
+            <view class="point_Num">点击量：{{item.watchers_count}}</view>
+            </view>
             <view class="like">
             <image class="like_Image" src="../../image/like.png" bindtap="tapLike" wx:if="{{item.like}}" data-index="{{index}}"></image>
             <image class="like_Image" src="../../image/like_1.png" bindtap="cancelLike" wx:if="{{item.islike}}" data-index="{{index}}"></image>
             </view>
         </view>
     </view>   
-        <!-- 空输入时 -->
-        <view class="result-null" wx:if="{{!match}}">
+        <!-- 查不到时 -->
+        <view class="result-null" wx:if="{{!num}}">
             <view class="null-tips">Oh~~ 搜索结果为空！</view>
             <view class="recommend-title">
-                <text>相关推荐</text>
+                <text>相关推荐(尚未实现)</text>
             </view>
-            <view class="recommend-box">
-                <view class="item_show" style="position: relative; left: -39rpx; top: -19rpx">
-            <view class=".item_title">文章标题</view>
-            <view class="content">内容简介</view>
-            <view class="from">平台&作者</view>
-            <view class="point_Num">文章点击量</view>
+            <view class="item_show" wx:for="{{result}}" wx:key="index">
+            <view bindtap="gotoURL" data-index="{{index}}">
+            <view class=".item_title">{{item.name}}</view>
+            <view class="content">  {{item.description}}</view>
+            <view class="from">来源：{{item.owner.login}}</view>
+            <view class="point_Num">点击量：{{item.stargazers_count}}</view>
+            </view>
             <view class="like">
-            <image class="like_Image" src="../../image/like.png" bindtap="tapLike" wx:if="{{like}}"></image>
-            <image class="like_Image" src="../../image/like_1.png" bindtap="cancelLike" wx:if="{{islike}}"></image>
+            <image class="like_Image" src="../../image/like.png" bindtap="tapLike" wx:if="{{item.like}}" data-index="{{index}}"></image>
+            <image class="like_Image" src="../../image/like_1.png" bindtap="cancelLike" wx:if="{{item.islike}}" data-index="{{index}}"></image>
             </view>
-        </view> 
-        <view class="item_show" style="position: relative; left: -39rpx; top: -19rpx">
-            <view class=".item_title">文章标题</view>
-            <view class="content">内容简介</view>
-            <view class="from">平台&作者</view>
-            <view class="point_Num">文章点击量</view>
-            <view class="like">
-            <image class="like_Image" src="../../image/like.png" bindtap="tapLike" wx:if="{{like}}"></image>
-            <image class="like_Image" src="../../image/like_1.png" bindtap="cancelLike" wx:if="{{islike}}"></image>
-            </view>
-        </view> 
-        <view class="item_show" style="position: relative; left: -39rpx; top: -19rpx">
-            <view class=".item_title">文章标题</view>
-            <view class="content">内容简介</view>
-            <view class="from">平台&作者</view>
-            <view class="point_Num">文章点击量</view>
-            <view class="like">
-            <image class="like_Image" src="../../image/like.png" bindtap="tapLike" wx:if="{{like}}"></image>
-            <image class="like_Image" src="../../image/like_1.png" bindtap="cancelLike" wx:if="{{islike}}"></image>
-            </view>
-        </view> 
-            </view>
+        </view>
         </view>
     </view>
     <!-- 热门搜索和历史搜索 -->
@@ -92,7 +72,12 @@
         </view>
     </view>
 <!-- 显示关键词语 -->
-    <view class="keywords" wx:if="{{showKeywords}}">
+    <!-- <view class="keywords" wx:if="{{false}}">
         <view class="keywords-item" wx:for="{{keywords}}" wx:key="index" data-text="{{item}}" bindtap="keywordHandle">{{item}}</view>
-    </view>
+    </view> -->
+    <!-- 下拉加载 -->
+    <view class="weui-loadmore" hidden="{{isHideLoadMore}}" wx:if="{{showResult}}">
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore__tips">正在加载</view>
+  </view>
 
