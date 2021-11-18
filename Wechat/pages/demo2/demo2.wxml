@@ -21,7 +21,7 @@
             <view bindtap="gotoURL" data-index="{{index}}">
             <view class=".item_title">{{item.name}}</view>
             <view class="content">  {{item.description}}</view>
-            <view class="from">{{item.owner.login}}</view>
+            <view class="from">来源：{{item.owner.login}}</view>
             <view class="point_Num">点击量：{{item.watchers_count}}</view>
             </view>
             <view class="like">
