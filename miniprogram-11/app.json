@@ -1,11 +1,9 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/page2/page2",
-    "pages/page3/page3",
-    "pages/page1/page1",
-    "pages/page5/page5",
-    "pages/logs/logs"
+    "pages/mine/mine",
+    "pages/setup/setup",
+    "pages/collect/collect",
+    "pages/follow/follow"
   ],
   "window": {
     "backgroundTextStyle": "light",
