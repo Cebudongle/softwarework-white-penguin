@@ -5,9 +5,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    current:0,
+    newslist:[{
+        text:'这是订阅界面内容'
+      },{
+        text:'这是关注界面内容'
+      }
+    ],
+    ll:[{"f":"月刊名","s":"最新期"},{"f":"月刊名","s":"最新期"},{"f":"月刊名","s":"最新期"},{"f":"月刊名","s":"最新期"},{"f":"月刊名","s":"最新期"},{"f":"月刊名","s":"最新期"},{"f":"月刊名","s":"最新期"},{"f":"月刊名","s":"最新期"}],
+    llf:[{"f":"月刊名","s":"最新期"},{"f":"月刊名","s":"最新期"},{"f":"月刊名","s":"最新期"},{"f":"月刊名","s":"最新期"},{"f":"月刊名","s":"最新期"},{"f":"月刊名","s":"最新期"},{"f":"月刊名","s":"最新期"},{"f":"月刊名","s":"最新期"}],
+    lls:[{"f":"作者:","s":"最新动态:"},{"f":"作者:","s":"最新动态:"},{"f":"作者:","s":"最新动态:"},{"f":"作者:","s":"最新动态:"},{"f":"作者:","s":"最新动态:"},{"f":"作者:","s":"最新动态:"},{"f":"作者:","s":"最新动态:"},{"f":"作者:","s":"最新动态:"}]
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -40,7 +48,6 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
   },
 
   /**
@@ -56,17 +63,21 @@ Page({
   onReachBottom: function () {
 
   },
-  data: {
-    current:0,
-    newslist:[{
-        text:'这是订阅界面内容'
-      },{
-        text:'这是关注界面内容'
-      }
-    ]
-  },
+ 
 
   onClick:function(event){
+    console.log(event.currentTarget.dataset.id)
+    var that = this
+    if(event.currentTarget.dataset.id=="0"){
+      this.setData({
+        ll:that.data.llf
+      })
+    }else{
+      this.setData({
+        ll:that.data.lls
+      })
+    }
+    console.log(this.data.ll)
     var index = event.currentTarget.dataset.id;
     this.setData({
       current:index

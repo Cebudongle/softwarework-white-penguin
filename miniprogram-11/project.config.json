@@ -29,7 +29,7 @@
     "minifyWXSS": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.19.5",
+  "libVersion": "2.20.1",
   "projectname": "miniprogram-11",
   "debugOptions": {
     "hidedInDevtools": []
@@ -40,6 +40,7 @@
     "servePath": ""
   },
   "isGameTourist": false,
+  "appid": "wx52b37159d2fb0092",
   "condition": {
     "search": {
       "list": []
