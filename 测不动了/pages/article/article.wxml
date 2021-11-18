@@ -1,2 +1,8 @@
 <!--pages/inside/inside.wxml-->
-<text>此页为文章内容，若文章不允许转载，则给出原文链接</text>
+<text>原文链接：{{article.link}}</text>
+<view class="article_title">
+
+</view>
+<view class="article_content">
+
+</view>

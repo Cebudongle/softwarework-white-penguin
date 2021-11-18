@@ -16,56 +16,15 @@
 </swiper>
 <!-- 轮播图 结束 -->
 <!-- 热门文章推送开始 -->
-<view class="first_tab">
-    <navigator class="article" url="/pages/article/article">
-<!-- 左侧文章信息 -->
-<view class="info_left">
-<view class="title">文章名：{{title}}</view>
-<view class="author">作者：{{author}}</view>
-</view>
-<!-- 右侧文章信息 -->
-<view class="info_right">
-<view class="click">点击量：{{click}}</view>
-<view class="webside">来源网站：{{webside}}</view>
-</view>
-</navigator>
-<view class="collect">
-<text class="iconfont icon-shoucang1">
-</text>
-<view class="collect_text">收藏</view>
-</view>
-</view>
-<view class="first_tab">
-    <navigator class="article" url="/pages/article/article">
-<!-- 左侧文章信息 -->
-<view class="info_left">
-<view class="title">文章名：{{title}}</view>
-<view class="author">作者：{{author}}</view>
-</view>
-<!-- 右侧文章信息 -->
-<view class="info_right">
-<view class="click">点击量：{{click}}</view>
-<view class="webside">来源网站：{{webside}}</view>
-</view>
-</navigator>
-<view class="collect">
-<text class="iconfont icon-shoucang1">
-</text>
-<view class="collect_text">收藏</view>
-</view>
-</view>
-<view class="first_tab">
-    <navigator class="article" url="/pages/article/article">
-<!-- 左侧文章信息 -->
-<view class="info_left">
-<view class="title">文章名：{{title}}</view>
-<view class="author">作者：{{author}}</view>
-</view>
-<!-- 右侧文章信息 -->
-<view class="info_right">
-<view class="click">点击量：{{click}}</view>
-<view class="webside">来源网站：{{webside}}</view>
-</view>
+<view 
+    wx:for="{{articleList}}"
+    wx:key="id"
+class="first_tab">
+    <navigator class="article" url="/pages/article/article?article_num={{item.num}}">
+<!-- 上方文章信息 -->
+<view class="title">文章名：{{item.blogTitle}}</view>
+<!-- 下方文章信息 -->
+<view class="brief">文章简介：{{item.blogBrief}}</view>
 </navigator>
 <view class="collect">
 <text class="iconfont icon-shoucang1">

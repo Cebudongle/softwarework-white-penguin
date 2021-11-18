@@ -21,27 +21,7 @@ Page({
             }
         ],
         articleList:[
-            {
-                num:1,
-                title:'motherfuck',
-                author:'curry',
-                click:10086,
-                webside:'github'
-            },
-            {
-                num:2,
-                title:'holleyshit',
-                author:'kobe',
-                click:110,
-                webside:'oschina'
-            },
-            {
-                num:3,
-                title:'brother_basketball',
-                author:'james',
-                click:23623,
-                webside:'nba'
-            }
+             
         ]
     },
 
@@ -52,12 +32,14 @@ Page({
         // 发送异步请求获取轮播图数据
         wx.request({
         // url内存放服务器的地址
-          url: '',
+          url: 'http://127.0.0.1:5000/',
+          data:{},
+          dataType:'json',
         //   成功时的回调函数
           success: (result) => {
             this.setData({
                 // 获取轮播图信息
-                swiperList:result.data.message
+                articleList:result.data.result
             })
           }
         });
