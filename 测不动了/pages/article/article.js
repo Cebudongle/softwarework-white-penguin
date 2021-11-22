@@ -5,15 +5,17 @@ Page({
      * 页面的初始数据
      */
     data: {
-        article_num: "", 
+        url: "", 
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        const {article_num}=options;
-        console.log(article_num);
+        let _url=wx.getStorageSync('web1');
+        this.setData({
+            url:_url
+        })
     },
 
     /**

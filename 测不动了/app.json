@@ -1,11 +1,11 @@
 {
   "pages":[
     "pages/home/home",
+    "pages/personal/personal",
+    "pages/article/article",
     "pages/index/index",
     "pages/hot/hot",
-    "pages/article/article",
-    "pages/item/item",
-    "pages/personal/personal"
+    "pages/item/item"
   ],
   "window":{
     "backgroundTextStyle":"dark",

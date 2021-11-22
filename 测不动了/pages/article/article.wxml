@@ -1,8 +1,2 @@
 <!--pages/inside/inside.wxml-->
-<text>原文链接：{{article.link}}</text>
-<view class="article_title">
-
-</view>
-<view class="article_content">
-
-</view>
+<web-view src="{{url}}"> </web-view>

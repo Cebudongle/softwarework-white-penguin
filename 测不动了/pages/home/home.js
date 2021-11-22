@@ -9,7 +9,7 @@ Page({
         swiperList: [
             {
                 id:0,
-                src:'http://img.chainnews.com/material/images/cc8ae2737e329ef99e1d76effe517ec7.jpg'
+                src:'https://static.oschina.net/uploads/space/2021/0618/082709_qiFl_4937141.png'
             },
             {
                 id:1,
@@ -38,13 +38,16 @@ Page({
         //   成功时的回调函数
           success: (result) => {
             this.setData({
-                // 获取轮播图信息
+                // 获取文章信息
                 articleList:result.data.result
             })
           }
         });
     },
-
+    gotoURL: function (e) {
+        wx.setStorageSync('web1', this.data.articleList[e.currentTarget.dataset.index].blogUrl)
+        console.log(wx.getStorageSync('web1'))
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

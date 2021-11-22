@@ -19,16 +19,21 @@
 <view 
     wx:for="{{articleList}}"
     wx:key="id"
+    data-index="{{index}}"
+    bindtap="gotoURL"
 class="first_tab">
-    <navigator class="article" url="/pages/article/article?article_num={{item.num}}">
+    <navigator class="article" url="/pages/article/article">
 <!-- 上方文章信息 -->
-<view class="title">文章名：{{item.blogTitle}}</view>
+<view class="titlebox">
+    <view class="title">{{item.blogTitle}}</view>
+    <view class="collect">
+    <image src="../../icon/heart.png"></image>
+    <view class="collect_text">收藏</view>
+    </view>
+</view>
 <!-- 下方文章信息 -->
 <view class="brief">文章简介：{{item.blogBrief}}</view>
+<view class="tr_platform">osChina</view>
+<view class="tr_click">点击量：{{item.id}}</view>
 </navigator>
-<view class="collect">
-<text class="iconfont icon-shoucang1">
-</text>
-<view class="collect_text">收藏</view>
-</view>
 </view>
