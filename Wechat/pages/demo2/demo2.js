@@ -8,14 +8,14 @@ function getSearch(callback) {
             q: getApp().search,//输入的关键字
             per_page: 15,   //分页-每页包含的数量
             page: pageNum,  //要查询的页数，pageNum为1
-            client_id: "GitHub Search",
-            client_secret: "0067e8e5bbbde8e9553cc2d69504b859d3218b5c"
+            // client_id: "GitHub Search",
+            // client_secret: "0067e8e5bbbde8e9553cc2d69504b859d3218b5c"
         },
         method: 'GET',
         dataType: 'jsonp',
-        header: {
-            'content-type': 'application/json'
-        },
+        // header: {
+        //     'content-type': 'application/json'
+        // },
         success: function (res) {
             // 需要对json字符串格式化
             var dataTmp = JSON.parse(res.data);
@@ -40,6 +40,7 @@ Page({
         num:'1',
         history: [],
         list:[],
+        heart:[],
         isHideLoadMore:true,
         // 热词推送
         hot: ['java', 'c++', 'python','one','tow','three'],
@@ -107,6 +108,10 @@ Page({
          var that = this;
         getSearch(function (dataTmp) {
             // 更新数据
+            dataTmp.items.forEach((r) => {  //array是后台返回的数据
+                r.islike = false;   //r = array[0]的所有数据，这样直接 r.新属性 = 属性值 即可
+                r.like = true;
+              })
             that.setData({
                 num: dataTmp.total_count,
                 result: dataTmp.items
@@ -224,6 +229,10 @@ Page({
         var that = this;
         getSearch(function (dataTmp) {
             // 拼接数据
+            dataTmp.items.forEach((r) => {  //array是后台返回的数据
+                r.islike = false;   //r = array[0]的所有数据，这样直接 r.新属性 = 属性值 即可
+                r.like = true;
+              })
             var tmp = that.data.result.concat(dataTmp.items);
             that.setData({
                 result: tmp
@@ -259,6 +268,10 @@ Page({
          var that = this;
         getSearch(function (dataTmp) {
             // 更新数据
+            dataTmp.items.forEach((r) => {  //array是后台返回的数据
+                r.islike = false;   //r = array[0]的所有数据，这样直接 r.新属性 = 属性值 即可
+                r.like = true;
+              })
             that.setData({
                 num: dataTmp.total_count,
                 result: dataTmp.items
@@ -318,6 +331,7 @@ Page({
         var result=this.data.result;
         result[index].islike=true;
         result[index].like=false;
+        console.log(result);
         this.setData({
             result:result,
         });
