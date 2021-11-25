@@ -1,2 +1,1 @@
-<!--pages/out/out.wxml-->
-<text>pages/out/out.wxml</text>
+<web-view src="{{url}}"></web-view>
