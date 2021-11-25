@@ -178,7 +178,7 @@
 /* 文章标题 */
 .item_title{
     font-size: 50rpx;
-    height: 60rpx;
+    height: 70rpx;
     position: relative;
     overflow: hidden;
     top: 30rpx;
