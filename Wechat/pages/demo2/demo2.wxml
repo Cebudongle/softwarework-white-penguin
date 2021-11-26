@@ -13,19 +13,17 @@
     <!-- 若showResult为false时候显示热点搜索和历史搜索，反之显示结果-->
     <view class="result" wx:if="{{showResult}}" >
     <view wx:if="{{match}}" >
+       
         <view class="item_show" wx:for="{{result}}" wx:key="index">
+            <view class="collect" wx:if="{{item.like}}"bindtap="tapLike" data-index="{{index}}"><image src="../../image/heart.png" style="width: 100%;height: 100%;"></image></view>
+            <view class="collect" wx:if="{{item.islike}}"bindtap="cancelLike" data-index="{{index}}"><image src="../../image/heart _1.png" style="width: 100%;height: 100%;"></image></view>
             <view bindtap="gotoURL" data-index="{{index}}">
             <view class=".item_title">{{item.name}}</view>
             <view></view>
-            <view class="collect"><image src="../../image/heart.png" style="width: 100%;height: 100%;"></image></view>
             <view class="content">项目简介：{{item.description}}</view>
             <view class="from">作者：{{item.owner.login}}</view>
             <view class="point_Num">点击量：{{item.watchers_count}}</view>
             <view class="deskTop" >Github</view>
-            </view>
-            <view class="like">
-            <image class="like_Image" src="../../image/like.png" bindtap="tapLike" wx:if="{{item.like}}" data-index="{{index}}"></image>
-            <image class="like_Image" src="../../image/like_1.png" bindtap="cancelLike" wx:if="{{item.islike}}" data-index="{{index}}"></image>
             </view>
         </view>
     </view>   
