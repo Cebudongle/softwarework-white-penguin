@@ -22,18 +22,18 @@
     data-index="{{index}}"
     bindtap="gotoURL"
 class="first_tab">
-    <navigator class="article" url="/pages/article/article">
+<view class="tr_writeBox"></view>
 <!-- 上方文章信息 -->
 <view class="titlebox">
     <view class="title">{{item.blogTitle}}</view>
-    <button class="collect" catchtap="sendLike">
-    <image src="../../images/heart.png"></image>
-    <view class="collect_text">收藏</view>
+    <button class="collect" catchtap="sendLike" data-index="{{index}}">
+    <image  mode="widthFix" src="/images/heart.png"></image>
     </button>
 </view>
 <!-- 下方文章信息 -->
-<view class="brief">文章简介：{{item.blogBrief}}</view>
-<view class="tr_platform">osChina</view>
-<view class="tr_click">点击量：{{item.id}}</view>
-</navigator>
+<view class="tr_platformBox">
+            <view class="tr_platform">csdn</view>
+            <view class="tr_click">点击量：{{item.id}}</view>
+        </view>
+<view class="tr_writeBox"></view>
 </view>

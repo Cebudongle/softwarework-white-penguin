@@ -27,6 +27,7 @@ Page({
   sendLike: function (e) {
     // console.log(e.currentTarget.dataset.index)
     var _url = this.data.articleList[e.currentTarget.dataset.index].blogUrl
+    var _title = this.data.articleList[e.currentTarget.dataset.index].blogTitle
     var that = this;
     wx.request({
         url: 'http://127.0.0.1:5000/hotlist',
