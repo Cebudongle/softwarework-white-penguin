@@ -1,9 +1,10 @@
 let timeId = null;
 // 获取后台数据函数
+var j=0;
 function getSearch(callback) {
     //用wx.request直接请求api
     wx.request({
-        url: 'https://api.github.com/search/repositories',// 查询库api
+        url: 'https://whitepenguin.xyz/search',// 查询库api
         data: {
             q: getApp().search,//输入的关键字
             per_page: 15,   //分页-每页包含的数量
@@ -29,13 +30,22 @@ function getSearch(callback) {
         complete: function (res) {
             console.log('请求成功',res)
         }
-    });
+    })
 }
 var pageNum = 1;
 var start= false;
-
 Page({
     data: {
+        openid: wx.getStorageSync('openid'),
+        match1:true,
+        match2:false,
+        gitee:[],
+        select:false,
+        grade_name:'Github',
+        grades: [
+          'Github',
+          'Gitee'
+         ],
         // 搜索历史
         num:'1',
         history: [],
@@ -108,17 +118,22 @@ Page({
          var that = this;
         getSearch(function (dataTmp) {
             // 更新数据
-            dataTmp.items.forEach((r) => {  //array是后台返回的数据
+            dataTmp.items1.forEach((r) => {  //array是后台返回的数据
+                r.islike = false;   //r = array[0]的所有数据，这样直接 r.新属性 = 属性值 即可
+                r.like = true;
+              })
+              dataTmp.items2.forEach((r) => {  //array是后台返回的数据
                 r.islike = false;   //r = array[0]的所有数据，这样直接 r.新属性 = 属性值 即可
                 r.like = true;
               })
             that.setData({
                 num: dataTmp.total_count,
-                result: dataTmp.items
+                gitee: dataTmp.items2,
+                result: dataTmp.items1,
             });
             // 关闭等待窗口
             wx.hideLoading();
-        })
+        });
         // let keywords = this.data.keywords;
         // 判断是否为空，为空showKeywords:false
         if(!e.detail.value){
@@ -143,80 +158,6 @@ Page({
             })
         }
     },
-
-    // // 触底
-    
-    // onReachBottom: function () {
-        // this.setData({
-        //     isHideLoadMore: false,
-        // })
-    //     console.log('加载更多');
-    //     var list;
-    //     console.log(list);
-    //     setTimeout(() => {
-    //       this.setData({
-    //         isHideLoadMore: true,
-    //         list: [
-    //             {
-    //                 id: 6,
-    //                 url: '../demo5/demo5',
-    //                 title: 'javaScript1',
-    //                 text:'************************',
-    //                 writer:'yuanP',
-    //                 pointNum:'1000',
-    //                 like: true,
-    //                 islike: false,
-    //             },
-    //             {
-    //                 id: 7,
-    //                 url: '../demo6/demo6',
-    //                 title: '月刊2',
-    //                 text:'************************',
-    //                 writer:'农P',
-    //                 pointNum:'2000',
-    //                 like: true,
-    //                 islike: false,
-    //             },
-    //             {
-    //                 id: 8,
-    //                 url: '../demo5/demo5',
-    //                 title: 'javaScript3',
-    //                 text:'************************',
-    //                 writer:'yuanP',
-    //                 pointNum:'1000',
-    //                 like: true,
-    //                 islike: false,
-    //             },
-    //             {
-    //                 id: 9,
-    //                 url: '../demo6/demo6',
-    //                 title: 'javaScript4',
-    //                 text:'************************',
-    //                 writer:'yuanP',
-    //                 pointNum:'1000',
-    //                 like: true,
-    //                 islike: false,
-    //             },
-    //             {
-    //                 id: 10,
-    //                 url: '../demo6/demo6',
-    //                 title: 'javaScript5',
-    //                 text:'************************',
-    //                 writer:'yuanP',
-    //                 pointNum:'1000',
-    //                 like: true,
-    //                 islike: false,
-    //                 match:false,
-    //             },
-    //         ],
-    //       })
-    //       list=this.data.list;
-    //       this.setData({
-    //           result:this.data.result.concat(list),
-    //       })
-    //     }, 1000)
-    //   },
-    
      // 触底事件
      onReachBottom: function () {
         this.setData({
@@ -229,13 +170,19 @@ Page({
         var that = this;
         getSearch(function (dataTmp) {
             // 拼接数据
-            dataTmp.items.forEach((r) => {  //array是后台返回的数据
+            dataTmp.items1.forEach((r) => {  //array是后台返回的数据
                 r.islike = false;   //r = array[0]的所有数据，这样直接 r.新属性 = 属性值 即可
                 r.like = true;
               })
-            var tmp = that.data.result.concat(dataTmp.items);
+              dataTmp.items2.forEach((r) => {  //array是后台返回的数据
+                r.islike = false;   //r = array[0]的所有数据，这样直接 r.新属性 = 属性值 即可
+                r.like = true;
+              })
+            var tmp = that.data.result.concat(dataTmp.items1);
+            var tmp1 = that.data.gitee.concat(dataTmp.items2);
             that.setData({
-                result: tmp
+                result: tmp,
+                gitee: tmp1
             });
             // 关闭标题栏等待样式
             wx.hideNavigationBarLoading();
@@ -268,13 +215,18 @@ Page({
          var that = this;
         getSearch(function (dataTmp) {
             // 更新数据
-            dataTmp.items.forEach((r) => {  //array是后台返回的数据
+            dataTmp.items1.forEach((r) => {  //array是后台返回的数据
+                r.islike = false;   //r = array[0]的所有数据，这样直接 r.新属性 = 属性值 即可
+                r.like = true;
+              })
+            dataTmp.items2.forEach((r) => {  //array是后台返回的数据
                 r.islike = false;   //r = array[0]的所有数据，这样直接 r.新属性 = 属性值 即可
                 r.like = true;
               })
             that.setData({
                 num: dataTmp.total_count,
-                result: dataTmp.items
+                result: dataTmp.items1,
+                gitee: dataTmp.items2
             });
             // 关闭等待窗口
             wx.hideLoading();
@@ -327,13 +279,96 @@ Page({
     // 喜欢按钮事件
     tapLike(e){
         console.log(e);
+        console.log(wx.getStorageSync('openid'));
         var index = e.currentTarget.dataset.index;
         var result=this.data.result;
+        var _url = result[index].html_url;
+        var _title = result[index].name;
+        var _openid = this.data.openid;
+        console.log(_url);
+        console.log(_title);
+        console.log(_openid);
+        if (this.data.openid == '') {
+            wx.showToast({
+                title: '请先登录'
+            })
+        } else {
+            var that = this;
+            wx.request({
+                url: 'https://whitepenguin.xyz/add_user_likes',
+                data: { //传递给后端的数据：所点击的URL和用户信息
+                    userOpenid: _openid,
+                    title: _title,
+                    url: _url
+                },
+                header: {
+                    'content-type': 'application/json'
+                },
+                method: 'GET',
+                dataType: 'json',
+                success: function (res) {
+                    console.log(res.data); //res.data为后台返回的数据
+                    that.setData({ //用that而不是this，用this就是success的this就错了
+                        //list:res.data.result
+                    })
+                    wx.showToast({
+                        title: '收藏成功'
+                    })
+                },
+                fail: function (err) {}, //请求失败
+                complete: function () {} //请求完成后执行的函数
+            })
+        }
         result[index].islike=true;
         result[index].like=false;
         console.log(result);
         this.setData({
             result:result,
+        });
+    },
+    tapLike1(e){
+        console.log(e);
+        var index = e.currentTarget.dataset.index;
+        var gitee=this.data.gitee;
+        var _url = gitee[index].html_url;
+        var _title = gitee[index].name;
+        var _openid = this.data.openid;
+        if (this.data.openid == '') {
+            wx.showToast({
+                title: '请先登录'
+            })
+        } else {
+            var that = this;
+            wx.request({
+                url: 'https://whitepenguin.xyz/add_user_likes',
+                data: { //传递给后端的数据：所点击的URL和用户信息
+                    url: _url,
+                    userOpenid: _openid,
+                    title: _title
+                },
+                header: {
+                    'content-type': 'application/json'
+                },
+                method: 'GET',
+                dataType: 'json',
+                success: function (res) {
+                    console.log(res.data); //res.data为后台返回的数据
+                    that.setData({ //用that而不是this，用this就是success的this就错了
+                        //list:res.data.result
+                    })
+                    wx.showToast({
+                        title: '收藏成功'
+                    })
+                },
+                fail: function (err) {}, //请求失败
+                complete: function () {} //请求完成后执行的函数
+            })
+        }
+        gitee[index].islike=true;
+        gitee[index].like=false;
+        console.log(gitee);
+        this.setData({
+            gitee:gitee,
         });
     },
     // 取消喜欢
@@ -342,10 +377,91 @@ Page({
         console.log(e);
         var index = e.currentTarget.dataset.index;
         var result=this.data.result;
+        var _url = result[index].html_url;
+        var _title = result[index].name;
+        var _openid = this.data.openid;
+        if (this.data.openid == '') {
+            wx.showToast({
+                title: '请先登录'
+            })
+        } else {
+            var that = this;
+            wx.request({
+                url: 'https://whitepenguin.xyz/del_user_likes',
+                data: { //传递给后端的数据：所点击的URL和用户信息
+                    url: _url,
+                    userOpenid: _openid,
+                    title: _title
+                },
+                header: {
+                    'content-type': 'application/json'
+                },
+                method: 'GET',
+                dataType: 'json',
+                success: function (res) {
+                    console.log(res.data); //res.data为后台返回的数据
+                    that.setData({ //用that而不是this，用this就是success的this就错了
+                        //list:res.data.result
+                    })
+                    wx.showToast({
+                        title: '取消收藏成功'
+                    })
+                },
+                fail: function (err) {}, //请求失败
+                complete: function () {} //请求完成后执行的函数
+            })
+
+        }
         result[index].islike=false;
         result[index].like=true;
         this.setData({
             result:result,
+        });
+    },
+    cancelLike1(e)
+    { 
+        console.log(e);
+        var index = e.currentTarget.dataset.index;
+        var gitee=this.data.gitee;
+        var _url = gitee[index].html_url;
+        var _title = gitee[index].name;
+        var _openid = this.data.openid;
+        if (this.data.openid == '') {
+            wx.showToast({
+                title: '请先登录'
+            })
+        } else {
+            var that = this;
+            wx.request({
+                url: 'https://whitepenguin.xyz/del_user_likes',
+                data: { //传递给后端的数据：所点击的URL和用户信息
+                    url: _url,
+                    userOpenid: _openid,
+                    title: _title
+                },
+                header: {
+                    'content-type': 'application/json'
+                },
+                method: 'GET',
+                dataType: 'json',
+                success: function (res) {
+                    console.log(res.data); //res.data为后台返回的数据
+                    that.setData({ //用that而不是this，用this就是success的this就错了
+                        //list:res.data.result
+                    })
+                    wx.showToast({
+                        title: '取消收藏成功'
+                    })
+                },
+                fail: function (err) {}, //请求失败
+                complete: function () {} //请求完成后执行的函数
+            })
+
+        }
+        gitee[index].islike=false;
+        gitee[index].like=true;
+        this.setData({
+            gitee:gitee,
         });
     },
     // 跳转页面
@@ -357,9 +473,81 @@ Page({
             url: '../out/out'
         })
     },
-    
+    gotoURL1: function (e) {
+        console.log(e)
+        wx.setStorageSync('web1', this.data.gitee[e.currentTarget.dataset.index].html_url)
+        console.log(wx.getStorageSync('web1'))
+        wx.navigateTo({
+            url: '../out/out'
+        })
+    },
+    bindShowMsg() {
+        this.setData({
+         select: !this.data.select
+        })
+       },
+      /**
+       * 已选下拉框
+       */
+       mySelect(e) {
+        console.log(e)
+        var name = e.currentTarget.dataset.name
+        var  i = e.currentTarget.dataset.index
+        j = e.currentTarget.dataset.index
+        this.setData({
+         grade_name: name,
+         select: false
+        })
+        if(i===0)
+        {
+            this.setData({
+                match1:true,
+                match2:false,
+               })
+        }
+        if(i===1)
+        {
+            this.setData({
+                match2:true,
+                match1:false,
+               })
+        }
+       },
+       userLogin: function () {
+
+        var that = this
+        //根据code获取openid等信息
+        wx.login({
+            //获取code
+            success: function (res) {
+                var code = res.code; //返回code
+                console.log(code);
+                var appId = 'wx08bdfe75b20beb79'; //小程序的appid
+                var secret = 'a41a53dc89852890e9be2c41538b8667'; //小程序的appsecret
+                wx.request({
+                    url: 'https://api.weixin.qq.com/sns/jscode2session?appid=' + appId + '&secret=' + secret + '&js_code=' + code + '&grant_type=authorization_code',
+                    data: {},
+                    header: {
+                        'content-type': 'json'
+                    },
+                    success: function (res) {
+                        var openid = res.data.openid //返回openid
+                        wx.setStorageSync('openid', openid)
+                        console.log(wx.getStorageSync('openid'))
+                        console.log('openid为' + openid);
+                        that.setData({
+                            openid: res.data.openid
+                        })
+                    }
+                })
+            }
+        })
+
+    },
 
     onLoad() {
+        this.userLogin();
+        console.log(wx.getStorageSync('openid'));
         const history = wx.getStorageSync('history');
         if (history) {
             this.setData({
@@ -367,7 +555,6 @@ Page({
             })
             console.log(this.data.history);
         }
-
     }
 })
 
