@@ -1,0 +1,24 @@
+<!-- 展示订阅、关注按钮 -->
+<view class="bottom">
+    <button size="mini" class="leftButton" style="background-color: {{dailyColor}};" bindtap="showDailylist">订阅</button>
+    <button size="mini" class="rightButton" style="background-color: {{specialColor}};"
+        bindtap="showSpecialArea">关注</button>
+</view>
+
+<!--  正式版：展示订阅 -->
+<view class='listTableWrap' wx:if="{{dailyFlag==1}}">
+    <view class="table" wx:for="{{list}}" data-index="{{index}}" bindtap="gotoURL">
+        <view class="tr_platform">作者:</view>
+        <view class="tr_click">最新动态:</view>
+        
+    </view>
+</view>
+
+<!-- 正式版：展示关注 -->
+<view class='listTableWrap'  wx:if="{{specialFlag==1}}">
+    <view class="table" wx:for="{{list}}" data-index="{{index}}" bindtap="gotoURL">
+        <view class="tr_platform">月刊名:</view>
+        <view class="tr_click">最新期：</view>
+    </view>
+</view>
+
