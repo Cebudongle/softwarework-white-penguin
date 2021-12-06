@@ -466,19 +466,23 @@ Page({
     },
     // 跳转页面
     gotoURL: function (e) {
+        var i;
         console.log(e)
+        i=e.currentTarget.dataset.index;
         wx.setStorageSync('web1', this.data.result[e.currentTarget.dataset.index].html_url)
         console.log(wx.getStorageSync('web1'))
         wx.navigateTo({
-            url: '../out/out'
+            url: '../demo4/demo4?like='+this.data.result[i].like+'&islike='+this.data.result[i].islike+'&name='+this.data.result[i].name+'&login='+this.data.result[i].owner.login+'&stargazers_count='+this.data.result[i].stargazers_count+'&forks_count='+this.data.result[i].forks_count+'&watchers_count='+this.data.result[i].watchers_count+'&description='+this.data.result[i].description+'&url='+this.data.result[i].html_url+'&value='+this.data.value+'&desktop='+"Github",
         })
     },
     gotoURL1: function (e) {
+        var i;
         console.log(e)
+        i=e.currentTarget.dataset.index;
         wx.setStorageSync('web1', this.data.gitee[e.currentTarget.dataset.index].html_url)
         console.log(wx.getStorageSync('web1'))
         wx.navigateTo({
-            url: '../out/out'
+            url: '../demo4/demo4?like='+this.data.gitee[i].like+'&islike='+this.data.gitee[i].islike+'&name='+this.data.gitee[i].name+'&login='+this.data.gitee[i].owner.login+'&stargazers_count='+this.data.gitee[i].stargazers_count+'&forks_count='+this.data.gitee[i].forks_count+'&watchers_count='+this.data.gitee[i].watchers_count+'&description='+this.data.gitee[i].description+'&url='+this.data.gitee[i].html_url+'&desktop='+"Gitee"+'&value='+this.data.value,
         })
     },
     bindShowMsg() {
