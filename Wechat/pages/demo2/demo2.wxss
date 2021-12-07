@@ -169,40 +169,52 @@
  .item_show{
     position: relative;
     width: 100%;
-    height: 400rpx;
     border:none;
     border-bottom: 2px solid #dcdcdc;
-    margin-bottom: 20rpx;
     overflow-x:hidden;
 }
 /* 文章标题 */
 .item_title{
-    font-size: 50rpx;
-    height: 70rpx;
+    color: #0366d6;
+    font-size: 44rpx;
     position: relative;
     overflow: hidden;
-    top: 30rpx;
-    left: 75rpx;
+    top: 15rpx;
+    left: 30rpx;
     width: 500rpx;
+}
+.focks{
+    position: relative;
+    overflow: hidden;
+    top: 20rpx;
+    left: 30rpx;
+}
+.star{
+    margin-right: 20rpx;
+    float: left;
+    position: relative;
+    overflow: hidden;
+    top: 20rpx;
+    left: 30rpx;
 }
 /* 内容简介 */
 .content{
     color: gray;
+    font-size: 30rpx;
     position: relative;
     overflow: hidden;
-    top:60rpx;
-    width: 600rpx;
-    height: 150rpx;
-    left: 75rpx;
+    top:20rpx;
+    width: 690rpx;
+    left: 30rpx;
 }
 /* 收藏 */
 .collect
 {
     position:absolute;
-    left:575rpx;
+    right: 30rpx;
     height: 60rpx;
-    width: 40px;
-    height: 40px;
+    width: 25px;
+    height: 25px;
     top:25rpx;
 }
 /* 来源 */
@@ -216,17 +228,18 @@
 /* 平台 */
 .point_Num
 {
-    position: absolute;
-    left: 420rpx; 
-    top: 350rpx;
+    margin-top: 20rpx;
+    margin-bottom: 15rpx;
+    position: relative;
+    top: 10rpx;
+    left: 30rpx;
 }
 /* 文章点击量 */
 .deskTop
 {   
     color: green;
-    position: absolute;
-    top: 350rpx;
-    left: 75rpx;
+    left: 30rpx;
+    position: relative;
 }
 /* 心形 */
 .like{
@@ -265,4 +278,75 @@
     display: inline-block;
     vertical-align: middle;
   }
-  
+  /* 顶部 */
+.top{
+    width: 100vw;
+    height: 80rpx;
+    padding: 0 20rpx;
+    line-height: 80rpx;
+    font-size: 34rpx;
+    border-radius: 20rpx;
+    border: 1px solid gray;
+   }
+   .top-text{
+    float: left
+   }
+   /* 下拉框 */
+   .top-selected{
+    border-radius: 10rpx;
+     width: 50%;
+     display: flex;
+     float: right;
+     align-items: center;
+     justify-content: space-between;
+     border: 1px solid #ccc;
+     border-bottom: none;
+     padding: 0 10rpx;
+     font-size: 30rpx;
+   }
+   /* 下拉内容 */
+   .select_box {
+    background-color: #fff;
+    padding: 0 20rpx;
+    width: 45%;
+    float: right;
+    position: absolute;
+    top: 200rpx;
+    right: 0;
+    z-index: 1;
+    overflow: hidden;
+    text-align: left;
+    animation: myfirst 0.5s;
+    font-size: 30rpx;
+  }
+  .select_one {
+   border-radius: 10rpx;
+    padding-left: 20rpx;
+    width: 100%;
+    height: 60rpx;
+    position: relative;
+    line-height: 60rpx;
+    border: 1px solid #ccc;
+  }
+   /* 下拉过度效果 */
+   @keyframes myfirst {
+     from {
+       height: 0rpx;
+     }
+    
+     to {
+       height: 110rpx;
+     }
+   }
+   /* 下拉图标 */
+   .top-selected image{
+    height:50rpx;
+    width:50rpx;
+    position: absolute;
+    right: 0rpx;
+    top: 20rpx;
+   }
+   .select-icon{
+     position: relative;
+     top: -45rpx;
+   }

@@ -1,18 +1,29 @@
 // pages/demo1/demo1.js
 Page({
-
+    
     /**
      * 页面的初始数据
      */
     data: {
-
+        openid: wx.getStorageSync('openid'),
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        wx.login({
+            success: res => {
+                console.log(res, 'login')
+                wx.request('url', {
+                        code: res.code
+                    },
+                    function (res) {
+                        var userinfo = res.data.data;
+                        wx.setStorageSync('userinfo', userinfo);
+                    })
+            }
+        });
     },
 
     /**
