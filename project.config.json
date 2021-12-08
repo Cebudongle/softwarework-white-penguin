@@ -30,18 +30,20 @@
             "disablePlugins": [],
             "outputPath": ""
         },
-        "enableEngineNative": false,
         "useIsolateContext": true,
         "userConfirmedBundleSwitch": false,
         "packNpmManually": false,
         "packNpmRelationList": [],
         "minifyWXSS": true,
-        "showES6CompileOption": false
+        "disableUseStrict": false,
+        "showES6CompileOption": false,
+        "useCompilerPlugins": false,
+        "minifyWXML": true
     },
     "compileType": "miniprogram",
     "libVersion": "2.20.0",
-    "appid": "wxb772793a9223a414",
-    "projectname": "cbdl",
+    "appid": "wxee8dca25d87127df",
+    "projectname": "1.0.0",
     "debugOptions": {
         "hidedInDevtools": []
     },
